@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Rhymesaurus from '@/views/Rhymesaurus'
-// TODO: Import new component
+//Import new component
 import AdjForNoun from '@/views/AdjForNoun'
 
 Vue.use(Router)
