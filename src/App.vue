@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Fun With DataMuse</h1>
+    <h1>Working Title, Wats final Project</h1>
     <router-view/>
   </div>
 </template>
