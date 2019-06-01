@@ -10,15 +10,15 @@
     <div class ="results">
       <p>Longitude: {{results.longitude}} </p>
       <p>Latitude:{{results.latitude}} </p> 
+      <p>How's the Weather there? {{results.visibility}}</p>
     </div>
 
     <div class="map">
-      <p>This is where the (possible) map could go</p>
+      <p>Don't know where that is, See it on a Map!</p>
+      <p> <router-link to="/adjfornoun">Adjective for noun</router-link></p>
       </div>
- <p>
-       <router-link to="/views/sunrise">Sunrise App</router-link>
-       </P>
-    <div class="sunset"><p>what time of day is it there?<button>click</button></p></div> 
+      
+    <div class="sunset"></div> 
   </div>
 
 </template>
