@@ -1,8 +1,8 @@
 <template>
   <div class="adjfornoun">
-      <h2>Homophones for a Noun</h2> <!--Adjective for a noun-->
+      <h2>Station Map</h2>
       <p>
-       <router-link to="/">Rhymesaurus</router-link>
+       <router-link to="/">Back to the Location Page</router-link>
        </P>
     <form v-on:submit.prevent="findWords">
       <p>Find a homophone for a given noun 

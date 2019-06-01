@@ -14,8 +14,8 @@
     </div>
 
     <div class="map">
-      <p>Don't know where that is, See it on a Map!</p>
-      <p> <router-link to="/adjfornoun">Adjective for noun</router-link></p>
+      <!-- <p>Don't know where that is, See it on a Map!</p> -->
+      <p> <router-link to="/adjfornoun">See it on a Map</router-link></p>
       </div>
       
     <div class="sunset"></div> 
