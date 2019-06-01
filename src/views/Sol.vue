@@ -8,8 +8,8 @@
     <p>Where is the Internal Space Station right now?</p>
 
     <div class ="results">
-      <p>Longitude: {{results.iss_position.longitude}} </p>
-      <p>Latitude:{{results.iss_position.latitude}} </p> 
+      <p>Longitude: {{results.longitude}} </p>
+      <p>Latitude:{{results.latitude}} </p> 
     </div>
 
     <div class="map">
@@ -35,13 +35,22 @@ export default {
   },
   mounted: function() {
     axios
-        .get("http://api.open-notify.org/iss-now.json?callback", {})
+        .get("https://api.wheretheiss.at/v1/satellites/25544", {})
         .then(response => {
           this.results = response.data;
         })
         .catch(error => {
           this.errors.push(error);
         });
+//         axios.get(`https://api.sunrise-sunset.org/json?lat={{results.iss_position.longitude}}&lng={{results.iss_position.longitude}}`)
+//     .then(response => {
+//       this.posts = response.data
+//     })
+//     .catch(e => {
+//       this.errors.push(e)
+//     })
+// //   }
+// // }
   },
 };
 // export default {
