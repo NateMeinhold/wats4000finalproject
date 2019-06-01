@@ -16,7 +16,7 @@
 
     <div class="map">
       <!-- <p>Don't know where that is, See it on a Map!</p> -->
-    <!-- <a href={{ results.map_url}}>See it on the map</a> -->
+    <a href={{"results.map_url"}}>See it on the map</a>
       </div>
       <p> <router-link to="/">Back to Location</router-link></p>
     <div class="sunset"></div> 
