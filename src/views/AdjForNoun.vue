@@ -1,72 +1,92 @@
 <template>
-  <div class="adjfornoun">
-      <h2>Station Map</h2>
-      <p>
-       <router-link to="/">Back to the Location Page</router-link>
-       </P>
-    <form v-on:submit.prevent="findWords">
-      <p>Find a homophone for a given noun 
-          <input type="text" v-model="noun"> 
-          <button type="submit">Search</button></p>
-    </form>
-    <ul class="results" v-if="results && results.length > 0">
-      <li class="item" v-for="(item, index) of results" :key="index">
-        <p><strong>{{item.word}}</strong></p>
-        <p>{{item.score}}</p>
-      </li>
-    </ul>
+  <div class="sol">
+    <h2>Map Page</h2>
 
-    <div class="no-results" v-else-if="results && results.length === 0">
-      <h2>No Words Found</h2>
-      <p>Please adjust your search to find more words.</p>
+    <form v-on:submit.prevent="findStation">
+      <p></p>
+    </form>
+    <p>Where is the Internal Space Station right now?</p>
+
+    <div class ="results">
+      <p>Longitude: {{results.longitude}} </p>
+      <p>Latitude:{{results.latitude}} </p> 
+      <p>How's the Weather there? {{results.visibility}}</p>
     </div>
 
-    <ul class="errors" v-if="errors && errors.length > 0">
-      <li v-for="(error, index) of errors" :key="index">
-        {{error.message}}
-      </li>
-    </ul>
+    <div class="map">
+      <!-- <p>Don't know where that is, See it on a Map!</p> -->
+      <p> <router-link to="/">Back to Location</router-link></p>
+      </div>
+      
+    <div class="sunset"></div> 
   </div>
+
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  name: 'AdjForNoun',
-  data () {
+  name: "Sol",
+  data() {
     return {
-        results: null, 
-        errors: [],
-        noun: '',
-      
-    }
-  }, 
-  methods: {
-  findWords: function() {
-    axios.get('https://api.datamuse.com/words', {
-      params: {
-        rel_hom: this.noun //change rel_jjb to change to adjectives
-      }
-    })
-    .then(response => {
-      this.results = response.data;
-    })
-    .catch(error => {
-      this.errors.push(error);
-    });
-  }
-}
-    
-}
+      results: null
+    };
+  },
+  mounted: function() {
+    axios
+        .get("https://api.wheretheiss.at/v1/satellites/25544", {})
+        .then(response => {
+          this.results = response.data;
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
+//         axios.get(`https://api.sunrise-sunset.org/json?lat={{results.iss_position.longitude}}&lng={{results.iss_position.longitude}}`)
+//     .then(response => {
+//       this.posts = response.data
+//     })
+//     .catch(e => {
+//       this.errors.push(e)
+//     })
+// //   }
+// // }
+  },
+};
+// export default {
+//   name: 'Sunrise',
+//   data () {
+//     return {
+//       posts: [],
+//       errors: []
+//     }
+//   },
+//   created () {
+//     axios.get(`https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400`)
+//     .then(response => {
+//       this.posts = response.data
+//     })
+//     .catch(e => {
+//       this.errors.push(e)
+//     })
+//   }
+// }
+
+
 </script>
 
 <style scoped>
-.adjfornoun {
+.results{
+  text-align: center
+}
+.map{
+  text-align: center
+}
+.sol {
   font-size: 1.4rem;
 }
 
-input[type="text"]{
+input[type="text"] {
   border-top: none;
   border-left: none;
   border-right: none;
@@ -75,10 +95,10 @@ input[type="text"]{
   font-size: 1.4rem;
   color: #2c3e50;
   font-weight: 300;
-  background: rgba(0,0,0,0.02);
+  background: rgba(0, 0, 0, 0.02);
   padding: 0.5rem;
 }
-button{
+button {
   background: #333;
   padding: 0.5rem;
   font-weight: 300;
@@ -87,7 +107,8 @@ button{
   cursor: pointer;
   font-size: 1.4rem;
 }
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
@@ -104,7 +125,7 @@ ul.results {
   width: 200px;
   min-height: 100px;
   color: #fff;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
 ul.errors {
   list-style-type: none;
