@@ -8,16 +8,17 @@
     <p>Where is the Internal Space Station right now?</p>
 
     <div class ="results">
-      <p>Longitude: {{results.longitude}} </p>
+      <!-- <p>Longitude: {{results.longitude}} </p>
       <p>Latitude:{{results.latitude}} </p> 
-      <p>How's the Weather there? {{results.visibility}}</p>
+      <p>How's the Weather there? {{results.visibility}}</p> -->
+      Where is that: {{results.timezone_id}}
     </div>
 
     <div class="map">
       <!-- <p>Don't know where that is, See it on a Map!</p> -->
-      <p> <router-link to="/">Back to Location</router-link></p>
+    <!-- <a href={{ results.map_url}}>See it on the map</a> -->
       </div>
-      
+      <p> <router-link to="/">Back to Location</router-link></p>
     <div class="sunset"></div> 
   </div>
 
@@ -35,7 +36,7 @@ export default {
   },
   mounted: function() {
     axios
-        .get("https://api.wheretheiss.at/v1/satellites/25544", {})
+        .get("https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693", {})
         .then(response => {
           this.results = response.data;
         })
