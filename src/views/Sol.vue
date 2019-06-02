@@ -42,15 +42,7 @@ export default {
         .catch(error => {
           this.errors.push(error);
         });
-//         axios.get(`https://api.sunrise-sunset.org/json?lat={{results.iss_position.longitude}}&lng={{results.iss_position.longitude}}`)
-//     .then(response => {
-//       this.posts = response.data
-//     })
-//     .catch(e => {
-//       this.errors.push(e)
-//     })
-// //   }
-// // }
+
   },
 };
 // export default {

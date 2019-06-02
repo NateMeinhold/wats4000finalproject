@@ -1,10 +1,10 @@
 <template>
   <div class="sol">
     <h2>Map Page</h2>
-<p> <router-link to="/">Back to Sation Locater</router-link></p>
-    <form v-on:submit.prevent="findStation">
+<p> <router-link to="/">Back to Station Locater</router-link></p>
+    <!-- <form v-on:submit.prevent="findStation">
       <p></p>
-    </form>
+    </form> -->
     <p>Where is the Internal Space Station right now?</p>
 
     <div class ="results">
@@ -16,7 +16,7 @@
 
     <div class="map">
       <!-- <p>Don't know where that is, See it on a Map!</p> -->
-    <a :href="results.map_url">Google Map Location</a>
+    <a target="_blank" :href="results.map_url">Google Map Location</a>
       </div>
       <!-- <p> <router-link to="/">Back to Sation Locater</router-link></p> -->
     <div class="sunset"></div> 
@@ -36,24 +36,46 @@ export default {
   },
   mounted: function() {
     axios
-        .get("https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693", {})
+        .get("https://api.wheretheiss.at/v1/satellites/25544", {})
+        .then(response => {
+          this.results = {map_url: "https://maps.google.com/maps?q=" + response.data.latitude + ',' + response.data.longitude};
+          // this.getLocationInfo();
+        })
+        .catch(error => {
+          console.log(error);
+          //this.errors.push(error);
+        });
+
+  },
+  // mounted: function() {
+  //   axios
+  //       // .get("https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693", {})
+                  //https://api.wheretheiss.at/v1/coordinates/9.173771,-93.292327
+  //       .get("https://api.wheretheiss.at/v1/coordinates/{{results.latitude}},{{results.longitude}}", {})
+  //       .then(response => {
+  //         this.results = response.data;
+  //       })
+  //       .catch(error => {
+  //         this.errors.push(error);
+  //       });
+  // },
+  methods: {
+    getLocationInfo () {
+    axios
+        .get("https://api.wheretheiss.at/v1/coordinates/"+ this.results.latitude + "," + this.results.longitude, {})
         .then(response => {
           this.results = response.data;
         })
         .catch(error => {
           this.errors.push(error);
         });
-//         axios.get(`https://api.sunrise-sunset.org/json?lat={{results.iss_position.longitude}}&lng={{results.iss_position.longitude}}`)
-//     .then(response => {
-//       this.posts = response.data
-//     })
-//     .catch(e => {
-//       this.errors.push(e)
-//     })
-// //   }
-// // }
-  },
+    }
+  }
 };
+//end of original code 
+
+
+
 // export default {
 //   name: 'Sunrise',
 //   data () {
