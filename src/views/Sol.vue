@@ -15,7 +15,7 @@
 
     <div class="map">
       <!-- <p>Don't know where that is, See it on a Map!</p> -->
-      <p> <router-link to="/adjfornoun">See it on a Map</router-link></p>
+      <p> <router-link to="/adjfornoun">Don't Know where that is?</router-link></p>
       </div>
       
     <div class="sunset"></div> 

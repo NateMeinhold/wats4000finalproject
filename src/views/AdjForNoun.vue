@@ -1,7 +1,7 @@
 <template>
   <div class="sol">
     <h2>Map Page</h2>
-
+<p> <router-link to="/">Back to Sation Locater</router-link></p>
     <form v-on:submit.prevent="findStation">
       <p></p>
     </form>
@@ -16,9 +16,9 @@
 
     <div class="map">
       <!-- <p>Don't know where that is, See it on a Map!</p> -->
-    <a href={{"results.map_url"}}>See it on the map</a>
+    <a :href="results.map_url">Google Map Location</a>
       </div>
-      <p> <router-link to="/">Back to Location</router-link></p>
+      <!-- <p> <router-link to="/">Back to Sation Locater</router-link></p> -->
     <div class="sunset"></div> 
   </div>
 
