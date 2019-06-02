@@ -16,7 +16,12 @@
 
     <div class="map">
       <!-- <p>Don't know where that is, See it on a Map!</p> -->
-    <a target="_blank" :href="results.map_url">Google Map Location</a>
+
+    <iframe :src="results.map_url" width="600" height="500" id="gmap_canvas"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+
+    <br/>
+
+    <a target="_blank" :href="results.google_url">Google Map Location</a>
       </div>
       <!-- <p> <router-link to="/">Back to Sation Locater</router-link></p> -->
     <div class="sunset"></div> 
@@ -31,14 +36,19 @@ export default {
   name: "Sol",
   data() {
     return {
-      results: null
+      results: {
+        map_url: "",
+        google_url: ""
+      }
     };
   },
   mounted: function() {
     axios
         .get("https://api.wheretheiss.at/v1/satellites/25544", {})
         .then(response => {
-          this.results = {map_url: "https://maps.google.com/maps?q=" + response.data.latitude + ',' + response.data.longitude};
+          this.results.google_url = "https://maps.google.com/maps?q=" + response.data.latitude + "," + response.data.longitude;
+          this.results.map_url ="https://maps.google.com/maps?q=" + response.data.latitude + "," + response.data.longitude + "&t=&z=13&ie=UTF8&iwloc=&output=embed";
+          console.log('here');
           // this.getLocationInfo();
         })
         .catch(error => {
