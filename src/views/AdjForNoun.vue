@@ -15,7 +15,7 @@
     </div>
 
     <div class="map">
-      <!-- <p>Don't know where that is, See it on a Map!</p> -->
+      <!-- GOOGLE MAP PLUG IN</p> -->
 
     <iframe :src="results.map_url" width="600" height="500" id="gmap_canvas"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 

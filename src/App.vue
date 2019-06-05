@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <h1>Working Title, Wats final Project</h1>
+    <!-- <img src="img_4K-final-top.jpg" alt="Italian Trulli"> -->
+    <h1>ISS Tracker</h1>
     <router-view/>
   </div>
 </template>
@@ -20,4 +21,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+/* body{
+  background-image: url("im")
+} */
 </style>
