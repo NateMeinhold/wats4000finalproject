@@ -7,7 +7,7 @@
     <!-- <form v-on:submit.prevent="findStation">
       <p></p>
     </form>-->
-    <p>Where is the Internal Space Station right now?</p>
+    <!-- <p>Where is the Internal Space Station right now?</p> -->
 
     <div class="results">
       <!-- <p>Longitude: {{results.longitude}} </p>
