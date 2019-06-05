@@ -1,32 +1,42 @@
 <template>
   <div class="sol">
     <h2>Map Page</h2>
-<p> <router-link to="/">Back to Station Locater</router-link></p>
+    <p>
+      <router-link to="/" class="next">Back to Station Locater</router-link>
+    </p>
     <!-- <form v-on:submit.prevent="findStation">
       <p></p>
-    </form> -->
+    </form>-->
     <p>Where is the Internal Space Station right now?</p>
 
-    <div class ="results">
+    <div class="results">
       <!-- <p>Longitude: {{results.longitude}} </p>
       <p>Latitude:{{results.latitude}} </p> 
-      <p>How's the Weather there? {{results.visibility}}</p> -->
+      <p>How's the Weather there? {{results.visibility}}</p>-->
       <!-- Where is that: {{results.timezone_id}} -->
     </div>
-
+    <!-- <spinner v-if="showSpinner"></spinner> -->
     <div class="map">
       <!-- GOOGLE MAP PLUG IN</p> -->
 
-    <iframe :src="results.map_url" width="900" height="600" id="gmap_canvas"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      <iframe
+        :src="results.map_url"
+        width="900"
+        height="600"
+        id="gmap_canvas"
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+      ></iframe>
 
-    <br/>
+      <br>
 
-    <!-- <a target="_blank" :href="results.google_url">Google Map Location</a> -->
-      </div>
-      <!-- <p> <router-link to="/">Back to Sation Locater</router-link></p> -->
-    <div class="sunset"></div> 
+      <!-- <a target="_blank" :href="results.google_url">Google Map Location</a> -->
+    </div>
+    <!-- <p> <router-link to="/">Back to Sation Locater</router-link></p> -->
+    <div class="sunset"></div>
   </div>
-
 </template>
 
 <script>
@@ -44,23 +54,31 @@ export default {
   },
   mounted: function() {
     axios
-        .get("https://api.wheretheiss.at/v1/satellites/25544", {})
-        .then(response => {
-          this.results.google_url = "https://maps.google.com/maps?q=" + response.data.latitude + "," + response.data.longitude;
-          this.results.map_url ="https://maps.google.com/maps?q=" + response.data.latitude + "," + response.data.longitude + "&t=&z=13&ie=UTF8&iwloc=&output=embed";
-          console.log('here');
-          // this.getLocationInfo();
-        })
-        .catch(error => {
-          console.log(error);
-          //this.errors.push(error);
-        });
-
-  },
+      .get("https://api.wheretheiss.at/v1/satellites/25544", {})
+      .then(response => {
+        this.results.google_url =
+          "https://maps.google.com/maps?q=" +
+          response.data.latitude +
+          "," +
+          response.data.longitude;
+        this.results.map_url =
+          "https://maps.google.com/maps?q=" +
+          response.data.latitude +
+          "," +
+          response.data.longitude +
+          "&t=&z=13&ie=UTF8&iwloc=&output=embed";
+        console.log("here");
+        // this.getLocationInfo();
+      })
+      .catch(error => {
+        console.log(error);
+        //this.errors.push(error);
+      });
+  }
   // mounted: function() {
   //   axios
   //       // .get("https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693", {})
-                  //https://api.wheretheiss.at/v1/coordinates/9.173771,-93.292327
+  //https://api.wheretheiss.at/v1/coordinates/9.173771,-93.292327
   //       .get("https://api.wheretheiss.at/v1/coordinates/{{results.latitude}},{{results.longitude}}", {})
   //       .then(response => {
   //         this.results = response.data;
@@ -82,9 +100,7 @@ export default {
   //   }
   // }
 };
-//end of original code 
-
-
+//end of original code
 
 // export default {
 //   name: 'Sunrise',
@@ -104,16 +120,14 @@ export default {
 //     })
 //   }
 // }
-
-
 </script>
 
 <style scoped>
-.results{
-  text-align: center
+.results {
+  text-align: center;
 }
-.map{
-  text-align: center
+.map {
+  text-align: center;
 }
 .sol {
   font-size: 1.4rem;
@@ -171,6 +185,6 @@ ul.errors {
 }
 
 a {
-  color: #42b983;
+  color: #2c3e50;
 }
 </style>

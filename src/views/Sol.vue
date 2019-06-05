@@ -6,16 +6,18 @@
       <p></p>
     </form>
     <p>Where is the Internal Space Station right now?</p>
+    <!-- <p> <router-link to="/adjfornoun" class="next">See It on a Map!</router-link></p> -->
+    <!-- <spinner v-if="showSpinner"></spinner> -->
 
     <div class ="results">
       <p>Longitude: {{results.longitude}} </p>
       <p>Latitude:{{results.latitude}} </p> 
       <p>How's the Weather there? {{results.visibility}}</p>
     </div>
+    <!-- <p> <router-link to="/adjfornoun" class="next">See It on a Map!</router-link></p> -->
 
     <div class="map">
-      <!-- <p>Don't know where that is, See it on a Map!</p> -->
-      <p> <router-link to="/adjfornoun">See It on a Map!</router-link></p>
+      <p> <router-link to="/adjfornoun" class="next">See It on a Map!</router-link></p>
       </div>
       
     <div class="sunset"></div> 
@@ -130,6 +132,7 @@ ul.errors {
 }
 
 a {
-  color: #42b983;
+  /* color: #42b983; */
+  color: #2c3e50
 }
 </style>
