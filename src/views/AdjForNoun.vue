@@ -11,17 +11,17 @@
       <!-- <p>Longitude: {{results.longitude}} </p>
       <p>Latitude:{{results.latitude}} </p> 
       <p>How's the Weather there? {{results.visibility}}</p> -->
-      Where is that: {{results.timezone_id}}
+      <!-- Where is that: {{results.timezone_id}} -->
     </div>
 
     <div class="map">
       <!-- GOOGLE MAP PLUG IN</p> -->
 
-    <iframe :src="results.map_url" width="600" height="500" id="gmap_canvas"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    <iframe :src="results.map_url" width="900" height="600" id="gmap_canvas"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 
     <br/>
 
-    <a target="_blank" :href="results.google_url">Google Map Location</a>
+    <!-- <a target="_blank" :href="results.google_url">Google Map Location</a> -->
       </div>
       <!-- <p> <router-link to="/">Back to Sation Locater</router-link></p> -->
     <div class="sunset"></div> 
@@ -69,18 +69,18 @@ export default {
   //         this.errors.push(error);
   //       });
   // },
-  methods: {
-    getLocationInfo () {
-    axios
-        .get("https://api.wheretheiss.at/v1/coordinates/"+ this.results.latitude + "," + this.results.longitude, {})
-        .then(response => {
-          this.results = response.data;
-        })
-        .catch(error => {
-          this.errors.push(error);
-        });
-    }
-  }
+  // methods: {
+  //   getLocationInfo () {
+  //   axios
+  //       .get("https://api.wheretheiss.at/v1/coordinates/"+ this.results.latitude + "," + this.results.longitude, {})
+  //       .then(response => {
+  //         this.results = response.data;
+  //       })
+  //       .catch(error => {
+  //         this.errors.push(error);
+  //       });
+  //   }
+  // }
 };
 //end of original code 
 

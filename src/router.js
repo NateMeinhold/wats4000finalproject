@@ -20,5 +20,10 @@ export default new Router({
       component: AdjForNoun
     }, 
     // TODO: Add new route definition here.
+    // {
+    //   path: '/stationmap',
+    //   name: 'stationmap',
+    //   component: StationMap
+    // }, 
   ]
 })
