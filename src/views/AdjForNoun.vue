@@ -20,7 +20,7 @@
         scrolling="no"
         marginheight="0"
         marginwidth="0"
-        zoom=".0001"
+        zoom=".00001"
       ></iframe>
 
       <br>
@@ -47,21 +47,22 @@ export default {
       }
     };
   },
-  mounted: function() {
+   mounted: function() {
     axios
       .get("https://api.wheretheiss.at/v1/satellites/25544", {})
       .then(response => {
-        this.results.google_url =
-          "https://maps.google.com/maps?q=" +
-          response.data.latitude +
-          "," +
-          response.data.longitude;
-        this.results.map_url =
-          "https://maps.google.com/maps?q=" +
-          response.data.latitude +
-          "," +
-          response.data.longitude +
-          "&t=&z=13&ie=UTF8&iwloc=&output=embed";
+        // 
+          // "https://maps.google.com/maps?q=" +
+          // response.data.latitude +
+          // "," +
+          // response.data.longitude;
+        this.results.map_url =`https://maps.google.com/maps?q=${response.data.latitude},${response.data.longitude}&t=&z=3&ie=UTF8&iwloc=&output=embed`
+          // "https://maps.google.com/maps?q=" +
+          // response.data.latitude +
+          // "," +
+          // response.data.longitude +
+          // "&t=&z=2&ie=UTF8&iwloc=&output=embed";
+          
         console.log("here");
         // this.getLocationInfo();
       })
@@ -72,27 +73,27 @@ export default {
   }
   // mounted: function() {
   //   axios
-  //       // .get("https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693", {})
-  //https://api.wheretheiss.at/v1/coordinates/9.173771,-93.292327
-  //       .get("https://api.wheretheiss.at/v1/coordinates/{{results.latitude}},{{results.longitude}}", {})
-  //       .then(response => {
-  //         this.results = response.data;
-  //       })
-  //       .catch(error => {
-  //         this.errors.push(error);
-  //       });
-  // },
-  // methods: {
-  //   getLocationInfo () {
-  //   axios
-  //       .get("https://api.wheretheiss.at/v1/coordinates/"+ this.results.latitude + "," + this.results.longitude, {})
-  //       .then(response => {
-  //         this.results = response.data;
-  //       })
-  //       .catch(error => {
-  //         this.errors.push(error);
-  //       });
-  //   }
+  //     .get("https://api.wheretheiss.at/v1/satellites/25544", {})
+  //     .then(response => {
+  //       this.results.google_url =
+  //         "https://maps.google.com/maps?q=" +
+  //         response.data.latitude +
+  //         "," +
+  //         response.data.longitude;
+  //       this.results.map_url =
+  //         "https://maps.google.com/maps?q=" +
+  //         response.data.latitude +
+  //         "," +
+  //         response.data.longitude +
+  //         "&t=&z=2&ie=UTF8&iwloc=&output=embed";
+          
+  //       console.log("here");
+  //       // this.getLocationInfo();
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //       //this.errors.push(error);
+  //     });
   // }
 };
 
