@@ -6,27 +6,29 @@
       <p></p>
     </form>
     <p>Where is the Internal Space Station right now?</p>
-    <!-- <p> <router-link to="/adjfornoun" class="next">See It on a Map!</router-link></p> -->
     <!-- <spinner v-if="showSpinner"></spinner> -->
 
-    <div class ="results">
-      <p>Longitude: {{results.longitude}} </p>
-      <p>Latitude:{{results.latitude}} </p> 
+    <div class="results">
+      <spinner v-if="showSpinner"></spinner>
+      <p>Longitude: {{results.longitude}}</p>
+      <p>Latitude:{{results.latitude}}</p>
       <p>How's the Weather there? {{results.visibility}}</p>
     </div>
-    <!-- <p> <router-link to="/adjfornoun" class="next">See It on a Map!</router-link></p> -->
 
     <div class="map">
-      <p> <router-link to="/adjfornoun" class="next">See It on a Map!</router-link></p>
-      </div>
-      
-    <div class="sunset"></div> 
-  </div>
+      <p>
+        <router-link to="/adjfornoun" class="next">See It on a Map!</router-link>
+      </p>
+    </div>
 
+    <div class="sunset"></div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+require("vue2-animate/dist/vue2-animate.min.css");
+import CubeSpinner from "@/components/CubeSpinner";
 
 export default {
   name: "Sol",
@@ -36,45 +38,31 @@ export default {
     };
   },
   mounted: function() {
+    //to start showing the spinner
+    this.showSpinner = true;
+    this.results = null;
     axios
-        .get("https://api.wheretheiss.at/v1/satellites/25544", {})
-        .then(response => {
-          this.results = response.data;
-        })
-        .catch(error => {
-          this.errors.push(error);
-        });
-
-  },
+      .get("https://api.wheretheiss.at/v1/satellites/25544", {})
+      .then(response => {
+        //turn off the spinner
+        this.showSpinner = false;
+        this.results = response.data;
+      })
+      .catch(error => {
+        //turn of the spinner
+        this.showSpinner = false;
+        this.errors.push(error);
+      });
+  }
 };
-// export default {
-//   name: 'Sunrise',
-//   data () {
-//     return {
-//       posts: [],
-//       errors: []
-//     }
-//   },
-//   created () {
-//     axios.get(`https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400`)
-//     .then(response => {
-//       this.posts = response.data
-//     })
-//     .catch(e => {
-//       this.errors.push(e)
-//     })
-//   }
-// }
-
-
 </script>
 
 <style scoped>
-.results{
-  text-align: center
+.results {
+  text-align: center;
 }
-.map{
-  text-align: center
+.map {
+  text-align: center;
 }
 .sol {
   font-size: 1.4rem;
@@ -133,6 +121,6 @@ ul.errors {
 
 a {
   /* color: #42b983; */
-  color: #2c3e50
+  color: #2c3e50;
 }
 </style>

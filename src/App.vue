@@ -34,15 +34,4 @@ body{
 .next:hover {
    color: #42b983;
 }
-/* .map {
-  padding-top: 5px;
-  padding-right: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  background-color: gray;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-right: 15px;
-  margin-left: 15px;
-} */
 </style>

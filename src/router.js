@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Rhymesaurus from '@/views/Rhymesaurus'
 // //Import new component
 import AdjForNoun from '@/views/AdjForNoun'
 import Sol from '@/views/Sol'
+// import StationMap from '@views/StationMap'
 
 Vue.use(Router)
 

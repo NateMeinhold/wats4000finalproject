@@ -4,13 +4,21 @@
     <p>
       <router-link to="/" class="next">Back to Station Locater</router-link>
     </p>
+    <!-- <form v-on:submit.prevent="findStation">
+      <p></p>
+    </form>-->
+    <!-- <p>Where is the Internal Space Station right now?</p> -->
 
     <div class="results">
+      <!-- <p>Longitude: {{results.longitude}} </p>
+      <p>Latitude:{{results.latitude}} </p> 
+      <p>How's the Weather there? {{results.visibility}}</p>-->
+      <!-- Where is that: {{results.timezone_id}} -->
     </div>
-    <spinner v-if="showSpinner"></spinner>
+    <!-- <spinner v-if="showSpinner"></spinner> -->
     <div class="map">
-
       <!-- GOOGLE MAP PLUG IN</p> -->
+
       <iframe
         :src="results.map_url"
         width="900"
@@ -20,13 +28,13 @@
         scrolling="no"
         marginheight="0"
         marginwidth="0"
-        zoom=".0001"
       ></iframe>
 
       <br>
 
+      <!-- <a target="_blank" :href="results.google_url">Google Map Location</a> -->
     </div>
-    
+    <!-- <p> <router-link to="/">Back to Sation Locater</router-link></p> -->
     <div class="sunset"></div>
   </div>
 </template>
@@ -95,7 +103,26 @@ export default {
   //   }
   // }
 };
+//end of original code
 
+// export default {
+//   name: 'Sunrise',
+//   data () {
+//     return {
+//       posts: [],
+//       errors: []
+//     }
+//   },
+//   created () {
+//     axios.get(`https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400`)
+//     .then(response => {
+//       this.posts = response.data
+//     })
+//     .catch(e => {
+//       this.errors.push(e)
+//     })
+//   }
+// }
 </script>
 
 <style scoped>
