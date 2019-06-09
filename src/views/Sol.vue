@@ -66,6 +66,17 @@ export default {
 }
 .sol {
   font-size: 1.4rem;
+  background-color: rgba(209, 208, 221, 0.3);
+  position: center;
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  border: 10 px solid #42b983;
+  border-radius: 25px;
+   border-style: solid;
+    border-color:  #42b983;
+  border-width: 1px;
+   padding: 25px 50px 25px 50px;
 }
 
 input[type="text"] {

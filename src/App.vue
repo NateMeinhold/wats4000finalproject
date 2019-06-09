@@ -34,4 +34,5 @@ body{
 .next:hover {
    color: #42b983;
 }
+
 </style>

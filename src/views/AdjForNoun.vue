@@ -164,4 +164,19 @@ ul.errors {
 a {
   color: #2c3e50;
 }
+
+/* .map {
+  font-size: 1.4rem;
+  background-color: rgba(136, 135, 156, 0.3);
+  position: center;
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  border: 10 px solid #42b983;
+  border-radius: 25px;
+   border-style: solid;
+    border-color:  #42b983;
+  border-width: 1px;
+   padding: 25px 50px 25px 50px;
+} */
 </style>
