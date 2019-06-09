@@ -5,7 +5,7 @@
     <form v-on:submit.prevent="findStation">
       <p></p>
     </form>
-    <p>Where is the Internal Space Station right now?</p>
+    <p>Where is the International Space Station right now?</p>
     <!-- <spinner v-if="showSpinner"></spinner> -->
 
     <div class="results">
