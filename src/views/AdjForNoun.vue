@@ -7,8 +7,9 @@
 
     <div class="results">
     </div>
-    <spinner v-if="showSpinner"></spinner>
+    <!-- <spinner v-if="showSpinner"></spinner> -->
     <div class="map">
+      <!-- <p>LOADING....</p> -->
 
       <!-- GOOGLE MAP PLUG IN</p> -->
       <iframe
@@ -21,9 +22,9 @@
         marginheight="0"
         marginwidth="0"
         zoom=".00001"
+        
       ></iframe>
-
-      <br>
+      
 
     </div>
     
@@ -33,7 +34,7 @@
 
 <script>
 import axios from "axios";
-import CubeSpinner from "@/components/CubeSpinner";
+// import CubeSpinner from "@/components/CubeSpinner";
 
 export default {
   name: "Sol",
@@ -71,30 +72,7 @@ export default {
         //this.errors.push(error);
       });
   }
-  // mounted: function() {
-  //   axios
-  //     .get("https://api.wheretheiss.at/v1/satellites/25544", {})
-  //     .then(response => {
-  //       this.results.google_url =
-  //         "https://maps.google.com/maps?q=" +
-  //         response.data.latitude +
-  //         "," +
-  //         response.data.longitude;
-  //       this.results.map_url =
-  //         "https://maps.google.com/maps?q=" +
-  //         response.data.latitude +
-  //         "," +
-  //         response.data.longitude +
-  //         "&t=&z=2&ie=UTF8&iwloc=&output=embed";
-          
-  //       console.log("here");
-  //       // this.getLocationInfo();
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //       //this.errors.push(error);
-  //     });
-  // }
+  
 };
 
 </script>
@@ -165,7 +143,7 @@ a {
   color: #2c3e50;
 }
 
-/* .map {
+iframe {
   font-size: 1.4rem;
   background-color: rgba(136, 135, 156, 0.3);
   position: center;
@@ -177,6 +155,5 @@ a {
    border-style: solid;
     border-color:  #42b983;
   border-width: 1px;
-   padding: 25px 50px 25px 50px;
-} */
+}
 </style>
