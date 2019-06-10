@@ -34,7 +34,9 @@ export default {
   name: "Sol",
   data() {
     return {
-      results: null
+      results: null,
+      showSpinner: false
+
     };
   },
   mounted: function() {
@@ -54,6 +56,9 @@ export default {
         this.errors.push(error);
       });
   }
+  //   components: {
+  //   spinner: CubeSpinner,
+  // }
 };
 </script>
 
